@@ -12,10 +12,11 @@
   },
   "author": "juhaelee",
   "license": "MIT",
-  "devDependencies": {
-    "bluebird": "^2.9.30",
-    "hapi": "^8.6.1",
-    "hoek": "^2.14.0",
-    "massive": "^2.0.4"
+  "devDependencies": {},
+  "dependencies": {
+    "@types/massive": "^2.2.1",
+    "@types/node": "^7.0.12",
+    "hapi": "^16.1.1",
+    "massive": "^2.6.0"
   }
 }
