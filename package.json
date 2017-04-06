@@ -1,16 +1,16 @@
 {
-  "name": "hapi-massive",
-  "version": "1.0.2",
-  "description": "Hapi plugin for massivejs 2.0",
+  "name": "hapi-massive-models",
+  "version": "0.1",
+  "description": "Hapi + models plugin for massivejs 2.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/juhaelee/hapi-massive.git"
+    "url": "https://github.com/zmanian/hapi-massive.git"
   },
-  "author": "juhaelee",
+  "author": "zmanian",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
@@ -18,5 +18,6 @@
     "@types/node": "^7.0.12",
     "hapi": "^16.1.1",
     "massive": "^2.6.0"
-  }
+  },
+  "types":"index.d.ts"
 }
