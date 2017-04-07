@@ -1,6 +1,6 @@
 {
   "name": "hapi-massive-models",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Hapi + models plugin for massivejs 2.0",
   "main": "index.js",
   "scripts": {
