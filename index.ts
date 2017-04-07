@@ -2,9 +2,31 @@ import * as massive from "massive";
 import * as hapi from 'hapi';
 import * as Path from 'path';
 
-export interface MassiveOptions {
-  connectionString: string
-  models: any
+
+export interface MassiveOption<T extends massive.Massive>{
+  connectionString: string;
+  models: Model<T>;
+}
+
+export class Model<T extends massive.Massive>{
+    static modelName:string;
+    db: T;
+    properties:any;
+    constructor(doc:any,db:massive.Massive){
+      this.db = db as T;
+      Object.keys(doc).forEach((key)=>{
+        this.properties[key] = doc.key
+      })
+    }
+    static create(document:any,db:massive.Massive,cb:Function){
+      db.saveDoc(typeof(this),document,(err:Error,doc:any)=>{
+        if (err){
+          cb(err,null)
+        }
+        cb(null,new this(doc,db))
+      });
+    }
+    
 }
 
 export const plugin = {
