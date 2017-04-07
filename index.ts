@@ -27,10 +27,10 @@ export class Model<T extends massive.Massive>{
       });
     }
     
-}
+}   
 
 export const plugin = {
-  register: function (server: hapi.Server, options: MassiveOptions, next: Function) {
+  register: function<T extends massive.Massive>(server: hapi.Server, options: MassiveOption<T>, next: Function) {
     massive.connect({
       connectionString: options.connectionString
     }, function (err, db) {

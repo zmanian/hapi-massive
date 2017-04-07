@@ -2,6 +2,26 @@
 exports.__esModule = true;
 var massive = require("massive");
 var Path = require("path");
+var Model = (function () {
+    function Model(doc, db) {
+        var _this = this;
+        this.db = db;
+        Object.keys(doc).forEach(function (key) {
+            _this.properties[key] = doc.key;
+        });
+    }
+    Model.create = function (document, db, cb) {
+        var _this = this;
+        db.saveDoc(typeof (this), document, function (err, doc) {
+            if (err) {
+                cb(err, null);
+            }
+            cb(null, new _this(doc, db));
+        });
+    };
+    return Model;
+}());
+exports.Model = Model;
 exports.plugin = {
     register: function (server, options, next) {
         massive.connect({
